@@ -1,0 +1,43 @@
+---
+title: "homework1"
+author: "Bowen Tang"
+date: now
+date-format: "YYYY-MM-DDTHH:mm:ssZ"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    embed-resources: true
+    code-tools: true
+    df-print: paged
+---
+
+> Source from nrennie and jonthegeek 's project:https://github.com/rfordatascience/tidytuesday/blob/main/data/2026/2026-06-16/england_wales_names.csv
+
+
+```{r}
+library(tidyverse)
+names <-read_csv("england_wales_names.csv")
+names
+```
+```{r}
+# Research Question: How has the popularity of the name 'Aadam' changed over time
+
+aadam <- names %>%
+  filter(Name == "Aadam")
+
+ggplot(aadam, aes(x = Year, y = Number)) +
+  geom_line() +
+  labs(
+    title = "Popularity of Aadam Over Time",
+    x = "Year",
+    y = "Number of Babies"
+  )
+```
+
+> From the graph, we can see that the popularity of Aadam reached its highest levels around 2015 and 2018. Overall, the popularity increased until 2020 and then began to decrease. We can also observe there might be an upward trend after 2025.
+
+
+
+
+
